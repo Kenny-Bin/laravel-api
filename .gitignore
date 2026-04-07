@@ -1,24 +1,89 @@
-*.log
-.DS_Store
-.env
-.env.backup
-.env.production
-.phpactor.json
-.phpunit.result.cache
-/.fleet
-/.idea
-/.nova
-/.phpunit.cache
-/.vscode
-/.zed
-/auth.json
+# Laravel 기본
 /node_modules
-/public/build
 /public/hot
 /public/storage
+/public/build
 /storage/*.key
 /storage/pail
 /vendor
+
+# 환경 설정 파일
+.env
+.env.backup
+.env.production
+
+# IDE 관련
+.idea/
+.vscode/
+.fleet/
+.nova/
+.zed/
+.phpactor.json
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Laravel 캐시 및 로그
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+/storage/framework/queue/*
+/storage/logs/*
+/bootstrap/cache/*
+
+# 예외: 필요한 .gitkeep은 유지
+!/storage/framework/cache/.gitkeep
+!/storage/framework/sessions/.gitkeep
+!/storage/framework/views/.gitkeep
+!/storage/framework/queue/.gitkeep
+!/storage/logs/.gitkeep
+!/storage/logs/admin/
+!/storage/logs/admin/.gitkeep
+/storage/logs/admin/*
+!/storage/logs/client/
+!/storage/logs/client/.gitkeep
+/storage/logs/client/*
+!/bootstrap/cache/.gitkeep
+
+# 테스트 관련
+/phpunit.xml
+/.phpunit.cache
+.phpunit.result.cache
+/coverage
+
+# NPM/Yarn
+npm-debug.log
+yarn-error.log
+
+# Composer
+composer.phar
+composer.lock
+auth.json
+
+# Homestead
 Homestead.json
 Homestead.yaml
-Thumbs.db
+
+# 로그 파일
+*.log
+
+# 기타
+*.sql
+*.sqlite
+*:Zone.Identifier
+
+# 추가 설정: tests 디렉터리 제외
+/tests/
+
+# 루트 파일 제외 (artisan, composer.json, .env만 포함)
+/server.php
+/package.json
+/package-lock.json
+/vite.config.js
+/tailwind.config.js
+/postcss.config.js
+/.editorconfig
+/.gitattributes
+/README.md

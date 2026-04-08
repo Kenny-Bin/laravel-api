@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Models\Admin\AdminBaseModel;
 
-class LogSqlerror extends AdminBaseModel
+class LogChadminSqlerror extends AdminBaseModel
 {
     protected $table = 'ota.log_chadmin_sqlerror';
     protected $primaryKey = 'seq';

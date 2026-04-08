@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * chadmin에서 전달된 헤더 정보를 Request attributes에 저장
+ * 전달된 헤더 정보를 Request attributes에 저장
  * API 서버는 stateless여야 하므로 session 대신 request attributes 사용
  */
 class InjectSessionFromHeaders

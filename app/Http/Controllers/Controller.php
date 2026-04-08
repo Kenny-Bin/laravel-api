@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Log;
+use Psr\Log\LoggerInterface;
 
 abstract class Controller
 {
+    protected LoggerInterface $log;
+
     public function __construct()
     {
-
+        $this->log = new \App\Support\PrefixedLogger(Log::channel('admin'), get_class($this));
     }
     /**
      * API 성공 응답 반환

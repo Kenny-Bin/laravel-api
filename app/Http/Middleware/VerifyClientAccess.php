@@ -12,10 +12,9 @@ class VerifyClientAccess
     /**
      * Handle an incoming request.
      *
-     * Client API 요청은 JWT 토큰으로 인증
+     * JWT 토큰으로 인증
      * - Authorization 헤더에서 JWT 추출
      * - JWT 검증 (서명, 만료 시간)
-     * - cln_seq 추출하여 Request에 저장
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */

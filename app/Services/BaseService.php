@@ -12,7 +12,7 @@ abstract class BaseService
 
     public function __construct()
     {
-
+        $this->log = new \App\Support\PrefixedLogger(Log::channel('admin'), get_class($this));
     }
 
     /**

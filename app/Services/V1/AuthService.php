@@ -2,9 +2,10 @@
 
 namespace App\Services\V1;
 
+use App\Helpers\JwtHelper;
 use App\Services\BaseService;
 use App\Services\Contracts\AuthServiceInterface;
-use App\Models\Agladmin\AdminMember;
+use App\Models\Admin\AdminMember;
 
 class AuthService extends BaseService implements AuthServiceInterface
 {
@@ -21,8 +22,8 @@ class AuthService extends BaseService implements AuthServiceInterface
             *,
             aes_decrypt(adm_pwd, ?) as passwd
         ", [$secretKey])
-        ->where('adm_id', $account)
-        ->first();
+            ->where('adm_id', $account)
+            ->first();
 
         // 사용자가 없거나 비밀번호가 일치하지 않으면 인증 실패
         if (!$user || $user->passwd !== $passwd) {
@@ -32,20 +33,17 @@ class AuthService extends BaseService implements AuthServiceInterface
             ]));
         }
 
-        // 채널어드민 접근 권한 확인
-        if ($user->chadmin_yn != 'Y') {
-            throw new \Exception(json_encode([
-                'code' => 'NO_CHADMIN_PERMISSION',
-                'message' => '',
-            ]));
-        }
+        $token = JwtHelper::encode([
+            'cln_seq' => $user->adm_seq,
+            'email' => $user->account,
+        ]);
 
         // 🎯 인증 성공
         return [
+            'user_email' => $user->account,
+            'user_name' => $user->adm_name,
             'adm_seq' => $user->adm_seq,
-            'adm_id' => $user->adm_id,
-            'adm_name' => $user->adm_name,
-            'email' => $user->email,
+            'token' => $token
         ];
     }
 }

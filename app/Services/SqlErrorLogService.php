@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use App\Models\LogSqlerror;
+use App\Models\LogChadminSqlerror;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Log;
 
@@ -31,7 +31,7 @@ class SqlErrorLogService
             $sqlTxt = self::getSqlWithBindings($exception);
 
             // DB에 저장
-            LogSqlerror::create([
+            LogChadminSqlerror::create([
                 'sql_txt' => $sqlTxt,
                 'create_ts' => now(),
                 'script_url' => $scriptUrl ?? 'CLI',

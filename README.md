@@ -154,16 +154,3 @@ php artisan serve
   "source": "api"
 }
 ```
-
-#### 번역 성공
-```json
-{
-  "status": "ok",
-  "data": {
-    "original": "안녕하세요",
-    "translated": "Hello",
-    "source_lang": "ko",
-    "target_lang": "en"
-  }
-}
-```

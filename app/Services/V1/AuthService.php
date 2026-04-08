@@ -40,7 +40,7 @@ class AuthService extends BaseService implements AuthServiceInterface
 
         // 🎯 인증 성공
         return [
-            'user_email' => $user->account,
+            'user_email' => $user->email,
             'user_name' => $user->adm_name,
             'adm_seq' => $user->adm_seq,
             'token' => $token

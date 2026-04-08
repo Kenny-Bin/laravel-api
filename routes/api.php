@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\V1\Auth\AuthController;
+use App\Http\Controllers\Admin\V1\Translation\TranslationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,4 +17,15 @@ Route::prefix('v1')->group(function () {
     Route::prefix('auth')->group(function () {
         Route::post('login', [AuthController::class, 'login']);
     });
+
+    // ==================== 번역 ====================
+
+    // 번역 API
+    Route::prefix('translation')->group(function () {
+        Route::post('/', [TranslationController::class, 'translate']);
+        Route::post('chatgpt', [TranslationController::class, 'translateWithChatGPT']);
+        Route::post('deepl', [TranslationController::class, 'translateWithDeepL']);
+    });
+
+
 });

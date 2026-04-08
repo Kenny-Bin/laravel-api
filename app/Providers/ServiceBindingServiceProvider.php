@@ -1,6 +1,7 @@
 <?php
 namespace App\Providers;
 
+use App\Services\Contracts\TranslationServiceInterface;
 use Illuminate\Support\ServiceProvider;
 
 // === Interfaces ===
@@ -13,6 +14,10 @@ class ServiceBindingServiceProvider extends ServiceProvider
         // 인터페이스 ↔ 버전별 구현체 매핑 (키는 반드시 소문자: v1, v2)
         $this->bindVersioned(AuthServiceInterface::class, [
             'v1' => \App\Services\V1\AuthService::class
+        ]);
+
+        $this->bindVersioned(TranslationServiceInterface::class, [
+            'v1' => \App\Services\V1\TranslationService::class
         ]);
     }
 

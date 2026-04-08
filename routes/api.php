@@ -39,6 +39,15 @@ Route::prefix('v1')->group(function () {
         Route::delete('{id}', [MenuManagerController::class, 'destroy'])->where('id', '[0-9]+');
     });
 
+    // ==================== 회원 ====================
+
+    // 회원관리
+    Route::prefix('user')->group(function () {
+        Route::get('/', [UserController::class, 'index']);
+        Route::get('{id}', [UserController::class, 'show'])->where('id', '[0-9]+');
+        Route::put('{id}', [UserController::class, 'update'])->where('id', '[0-9]+');
+    });
+
     // ==================== 공지 및 서비스 ====================
 
     // 공지사항

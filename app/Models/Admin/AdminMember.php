@@ -15,7 +15,7 @@ class AdminMember extends Authenticatable
 {
     use HasApiTokens;
 
-    protected $table = 'agladmin.admin_member';
+    protected $table = 'admin_member';
     protected $primaryKey = 'adm_seq';
     public $timestamps = true;
 

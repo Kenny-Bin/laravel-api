@@ -23,11 +23,6 @@ class AdminBaseModel extends BaseModel
         'delete_ts' => 'datetime',
     ];
 
-    protected function getSchemaPrefix(): string
-    {
-        return 'ota.';
-    }
-
     public function getFullTableName(): string
     {
         return $this->getConnection()->getTablePrefix() . $this->getTable();

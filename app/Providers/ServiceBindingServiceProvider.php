@@ -1,6 +1,10 @@
 <?php
 namespace App\Providers;
 
+use App\Services\Contracts\FaqServiceInterface;
+use App\Services\Contracts\MenuManagerServiceInterface;
+use App\Services\Contracts\MenuServiceInterface;
+use App\Services\Contracts\NoticeServiceInterface;
 use App\Services\Contracts\TranslationServiceInterface;
 use Illuminate\Support\ServiceProvider;
 
@@ -16,8 +20,24 @@ class ServiceBindingServiceProvider extends ServiceProvider
             'v1' => \App\Services\V1\AuthService::class
         ]);
 
+        $this->bindVersioned(MenuServiceInterface::class, [
+            'v1' => \App\Services\V1\MenuService::class
+        ]);
+
+        $this->bindVersioned(MenuManagerServiceInterface::class, [
+            'v1' => \App\Services\V1\MenuManagerService::class
+        ]);
+
         $this->bindVersioned(TranslationServiceInterface::class, [
             'v1' => \App\Services\V1\TranslationService::class
+        ]);
+
+        $this->bindVersioned(NoticeServiceInterface::class, [
+            'v1' => \App\Services\V1\NoticeService::class
+        ]);
+
+        $this->bindVersioned(FaqServiceInterface::class, [
+            'v1' => \App\Services\V1\FaqService::class
         ]);
     }
 

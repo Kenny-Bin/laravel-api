@@ -4,9 +4,9 @@ namespace App\Models;
 
 use App\Models\Admin\AdminBaseModel;
 
-class LogChadminSqlerror extends AdminBaseModel
+class LogSqlerror extends AdminBaseModel
 {
-    protected $table = 'ota.log_chadmin_sqlerror';
+    protected $table = 'log_chadmin_sqlerror';
     protected $primaryKey = 'seq';
 
     // create_ts만 있고 last_update_ts가 없음

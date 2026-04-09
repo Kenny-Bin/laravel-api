@@ -47,7 +47,7 @@ DB_PORT=5432
 DB_DATABASE=your-database
 DB_USERNAME=your-username
 DB_PASSWORD=your-password
-DB_SCHEMA=public,agladmin
+DB_SCHEMA=public
 ```
 
 #### JWT 인증
